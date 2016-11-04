@@ -13,10 +13,6 @@ npm install
 npm start
 ```
 
-## Deploy with pm2
+## view page: localhost:8360
 
-Use pm2 to deploy app on production enviroment.
-
-```
-pm2 startOrReload pm2.json
-```
+## sha file: sha-file.txt
