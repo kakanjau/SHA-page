@@ -19,6 +19,7 @@ code{  padding: 2px 4px;font-size: 90%;color: #c7254e;background-color: #f9f2f4;
 .list .item p{line-height: 30px;margin-top: 10px}
 </style>
 <script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="jsSHA.js"></script>
 </head>
 <body>
   <header>
@@ -46,13 +47,10 @@ code{  padding: 2px 4px;font-size: 90%;color: #c7254e;background-color: #f9f2f4;
         if(!name.val() || !pass.val()) {
           return;
         }
-        $.ajax('index/sha', {
-          data: {name: name.val(), pass: pass.val()}
-        }).success(
-          function(data){
-            $('#result').text(data.data);
-          }
-        );
+        var shaObj = new jsSHA("SHA-1", "TEXT");
+        shaObj.update(pass.val());
+        var hash = shaObj.getHash("B64");
+        $('#result').text(name.val() +'{SHA}' + hash);
       });
     });
   </script>
