@@ -33,7 +33,7 @@ export default class extends Base {
 
   shaAction(){
     let shaPass = generateSHA(this.get('pass'));
-    let content = `${this.get('name')}{SHA}${shaPass}\r`;
+    let content = `${this.get('name')}:{SHA}${shaPass}\r`;
     writeFile(content);
     return this.success(content);
   }
